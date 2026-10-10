@@ -1,0 +1,6376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#16803a">
+<title>Kushwaha Saag Sabzi Thok Fasal</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7f4;
+    color:#222;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.header{
+    height:65px;
+    background:#16803a;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:white;
+    color:#16803a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.shop-title{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.shop-subtitle{
+    font-size:11px;
+    opacity:.9;
+}
+
+.header-buttons{
+    display:flex;
+    gap:7px;
+}
+
+.header-btn{
+    border:0;
+    background:rgba(255,255,255,.15);
+    color:white;
+    border-radius:9px;
+    padding:9px 11px;
+    font-size:14px;
+}
+
+.header-btn:hover{
+    background:rgba(255,255,255,.25);
+}
+
+/* ================================
+   TOP IMAGE SLIDER
+================================ */
+
+.top-slider{
+    position:relative;
+    width:100%;
+    background:#0e5d2a;
+    overflow:hidden;
+}
+
+.top-slider-track{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/6;
+    min-height:190px;
+    max-height:460px;
+}
+
+.top-slide{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity .55s ease;
+    display:block;
+}
+
+.top-slide.active{
+    opacity:1;
+}
+
+.top-slider-empty{
+    width:100%;
+    height:100%;
+    min-height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    background:linear-gradient(135deg,#126b31,#2c9b4c);
+    font-size:16px;
+    font-weight:bold;
+}
+
+.top-slider-dots{
+    position:absolute;
+    left:50%;
+    bottom:14px;
+    transform:translateX(-50%);
+    display:flex;
+    gap:7px;
+    z-index:4;
+}
+
+.top-slider-dot{
+    width:9px;
+    height:9px;
+    border:0;
+    border-radius:50%;
+    padding:0;
+    background:rgba(255,255,255,.55);
+    box-shadow:0 1px 4px rgba(0,0,0,.25);
+}
+
+.top-slider-dot.active{
+    background:white;
+    transform:scale(1.25);
+}
+
+.top-slider-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:50%;
+    background:rgba(0,0,0,.28);
+    color:white;
+    font-size:22px;
+    z-index:4;
+}
+
+.top-slider-arrow:hover{
+    background:rgba(0,0,0,.45);
+}
+
+.top-slider-prev{
+    left:14px;
+}
+
+.top-slider-next{
+    right:14px;
+}
+
+/* ================================
+   HERO
+================================ */
+
+.hero{
+    background:linear-gradient(135deg,#16803a,#36a852);
+    color:white;
+    padding:30px 18px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:27px;
+    margin-bottom:8px;
+}
+
+.hero p{
+    font-size:14px;
+    opacity:.95;
+}
+
+.status{
+    display:inline-block;
+    margin-top:14px;
+    padding:7px 14px;
+    border-radius:20px;
+    background:white;
+    color:#16803a;
+    font-weight:bold;
+    font-size:13px;
+}
+
+/* ================================
+   MAIN
+================================ */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:22px 15px 80px;
+}
+
+.main-slots{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+    margin-bottom:25px;
+}
+
+.slot{
+    min-height:150px;
+    border-radius:18px;
+    color:white;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    border:0;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+    transition:.2s;
+}
+
+.slot:hover{
+    transform:translateY(-3px);
+}
+
+.slot-icon{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.slot h2{
+    font-size:21px;
+    margin-bottom:5px;
+}
+
+.slot p{
+    font-size:13px;
+    opacity:.9;
+}
+
+.products-slot{
+    background:linear-gradient(135deg,#18863c,#39a852);
+}
+
+.orders-slot{
+    background:linear-gradient(135deg,#e98a16,#f2b13b);
+}
+
+.section{
+    background:white;
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:18px;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.section-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.section-header h2{
+    font-size:20px;
+}
+
+.search{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:13px;
+    font-size:15px;
+    margin-bottom:17px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#16803a;
+}
+
+/* ================================
+   PRODUCTS
+================================ */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.product-card{
+    border:1px solid #e5e5e5;
+    border-radius:15px;
+    overflow:hidden;
+    background:white;
+    transition:.2s;
+}
+
+.product-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 15px rgba(0,0,0,.1);
+}
+
+.product-image{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    background:#eee;
+}
+
+.product-info{
+    padding:13px;
+}
+
+.product-name{
+    font-weight:bold;
+    font-size:17px;
+    margin-bottom:5px;
+}
+
+.product-description{
+    font-size:12px;
+    color:#777;
+    min-height:30px;
+}
+
+.unit{
+    display:inline-block;
+    background:#edf7ef;
+    color:#16803a;
+    padding:4px 8px;
+    border-radius:7px;
+    font-size:11px;
+    margin-top:7px;
+}
+
+.price{
+    font-size:19px;
+    font-weight:bold;
+    color:#16803a;
+    margin-top:9px;
+}
+
+.old-price{
+    color:#999;
+    text-decoration:line-through;
+    font-size:12px;
+    margin-left:5px;
+}
+
+.discount{
+    background:#e53935;
+    color:white;
+    font-size:10px;
+    padding:4px 6px;
+    border-radius:5px;
+    margin-left:5px;
+}
+
+.add-btn{
+    width:100%;
+    border:0;
+    background:#16803a;
+    color:white;
+    padding:11px;
+    border-radius:9px;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.add-btn:hover{
+    background:#10672d;
+}
+
+/* ================================
+   CART
+================================ */
+
+.cart-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #eee;
+    padding:12px 0;
+    gap:10px;
+}
+
+.cart-info{
+    flex:1;
+}
+
+.cart-name{
+    font-weight:bold;
+}
+
+.cart-price{
+    color:#16803a;
+    font-size:13px;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.qty button{
+    width:30px;
+    height:30px;
+    border:0;
+    background:#16803a;
+    color:white;
+    border-radius:7px;
+}
+
+.total{
+    font-size:20px;
+    font-weight:bold;
+    text-align:right;
+    margin-top:15px;
+    color:#16803a;
+}
+
+.primary-btn{
+    width:100%;
+    border:0;
+    background:#16803a;
+    color:white;
+    padding:13px;
+    border-radius:10px;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+.secondary-btn{
+    width:100%;
+    border:1px solid #16803a;
+    background:white;
+    color:#16803a;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+/* ================================
+   FORMS
+================================ */
+
+.form-group{
+    margin-bottom:13px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:9px;
+    padding:12px;
+    font-size:14px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:80px;
+    resize:vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+    border-color:#16803a;
+}
+
+/* ================================
+   ORDERS
+================================ */
+
+.order-card{
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:14px;
+    margin-bottom:12px;
+}
+
+.order-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.order-id{
+    font-weight:bold;
+}
+
+.badge{
+    padding:5px 8px;
+    border-radius:7px;
+    background:#fff3cd;
+    color:#856404;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.order-details{
+    font-size:13px;
+    color:#666;
+    margin-top:8px;
+    line-height:1.6;
+}
+
+.order-customer-name{
+    font-size:14px;
+    font-weight:bold;
+    color:#222;
+    margin-top:9px;
+}
+
+.order-products{
+    margin-top:10px;
+    padding:10px;
+    background:#f7faf7;
+    border-radius:9px;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.order-products-title{
+    font-weight:bold;
+    color:#16803a;
+    margin-bottom:4px;
+}
+
+.order-product-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    border-bottom:1px solid #e8eee8;
+    padding:4px 0;
+}
+
+.order-product-row:last-child{
+    border-bottom:0;
+}
+
+.delete-order-btn{
+    width:100%;
+    border:0;
+    background:#dc3545;
+    color:white;
+    padding:11px;
+    border-radius:9px;
+    font-weight:bold;
+    margin-top:9px;
+}
+
+.delete-order-btn:hover{
+    background:#b02a37;
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+
+.sidebar-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:2000;
+    display:none;
+}
+
+.sidebar-overlay.show{
+    display:block;
+}
+
+.sidebar{
+    position:fixed;
+    left:-310px;
+    top:0;
+    width:300px;
+    height:100%;
+    background:white;
+    z-index:2100;
+    transition:.3s;
+    box-shadow:5px 0 20px rgba(0,0,0,.2);
+    overflow-y:auto;
+}
+
+.sidebar.open{
+    left:0;
+}
+
+.sidebar-head{
+    background:#16803a;
+    color:white;
+    padding:25px 20px;
+}
+
+.sidebar-logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:white;
+    color:#16803a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.sidebar-head h2{
+    font-size:18px;
+}
+
+.sidebar-head p{
+    font-size:12px;
+    opacity:.9;
+    margin-top:4px;
+}
+
+.menu{
+    padding:10px;
+}
+
+.menu button{
+    width:100%;
+    text-align:left;
+    border:0;
+    background:white;
+    padding:14px;
+    border-radius:10px;
+    font-size:15px;
+    margin-bottom:3px;
+}
+
+.menu button:hover{
+    background:#edf7ef;
+    color:#16803a;
+}
+
+.menu-divider{
+    border-top:1px solid #eee;
+    margin:10px 0;
+}
+
+/* ================================
+   MODALS
+================================ */
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:3000;
+    padding:15px;
+}
+
+.modal-overlay.show{
+    display:flex;
+}
+
+.modal{
+    width:100%;
+    max-width:520px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:white;
+    border-radius:18px;
+    padding:20px;
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.close{
+    border:0;
+    background:#eee;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    font-size:20px;
+}
+
+/* ================================
+   ADMIN
+================================ */
+
+.admin-product{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:10px;
+    margin-bottom:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.admin-actions{
+    display:flex;
+    gap:5px;
+}
+
+.small-btn{
+    border:0;
+    border-radius:6px;
+    padding:7px 9px;
+    font-size:11px;
+}
+
+.edit-btn{
+    background:#e8f0ff;
+    color:#2563eb;
+}
+
+.delete-btn{
+    background:#ffe8e8;
+    color:#d62828;
+}
+
+/* ================================
+   OWNER THREE BUTTONS
+================================ */
+
+.owner-nav{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.owner-nav-btn{
+    border:1px solid #dfe9e1;
+    background:#f7faf7;
+    color:#176b35;
+    border-radius:12px;
+    padding:13px 8px;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.owner-nav-btn.active,
+.owner-nav-btn:hover{
+    background:#16803a;
+    color:white;
+    border-color:#16803a;
+}
+
+.owner-panel{
+    display:none;
+}
+
+.owner-panel.active{
+    display:block;
+}
+
+.closed-shop-note{
+    display:none;
+    margin-top:8px;
+    padding:9px 10px;
+    border-radius:8px;
+    background:#fff0f0;
+    color:#b42318;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* ================================
+   TOP IMAGE ADMIN
+================================ */
+
+.slide-upload-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+    margin-top:12px;
+}
+
+.slide-admin-card{
+    position:relative;
+    border:1px solid #e2e8e3;
+    border-radius:10px;
+    overflow:hidden;
+    background:#fafcfa;
+}
+
+.slide-admin-card img{
+    width:100%;
+    height:100px;
+    object-fit:cover;
+    display:block;
+}
+
+.slide-admin-card span{
+    display:block;
+    padding:7px 8px;
+    font-size:11px;
+    color:#555;
+}
+
+.slide-remove-btn{
+    position:absolute;
+    right:6px;
+    top:6px;
+    border:0;
+    background:#dc3545;
+    color:white;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    font-weight:bold;
+}
+
+/* ================================
+   TOAST
+================================ */
+
+.toast{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%) translateY(100px);
+    background:#222;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    z-index:5000;
+    transition:.3s;
+    font-size:13px;
+}
+
+.toast.show{
+    transform:translateX(-50%) translateY(0);
+}
+
+.loading{
+    text-align:center;
+    padding:30px;
+    color:#777;
+}
+
+@media(max-width:800px){
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .main-slots{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .slot{
+        min-height:130px;
+        padding:15px 8px;
+    }
+
+    .slot-icon{
+        font-size:34px;
+    }
+
+    .slot h2{
+        font-size:17px;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .product-image{
+        height:135px;
+    }
+
+    .shop-title{
+        font-size:14px;
+    }
+
+    .header{
+        padding:0 10px;
+    }
+
+    .header-btn{
+        padding:8px;
+    }
+
+}
+
+@media(max-width:380px){
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <div class="logo">D</div>
+
+        <div>
+            <div class="shop-title" id="headerShopTitle">
+                Kushwaha Saag Sabzi
+            </div>
+
+            <div class="shop-subtitle">
+                Thok pasal rangeli -07 morang
+            </div>
+        </div>
+
+    </div>
+
+    <div class="header-buttons">
+
+        <button
+            class="header-btn"
+            onclick="openSidebar()"
+        >
+            ☰
+        </button>
+
+        <button
+            class="header-btn"
+            onclick="showCart()"
+        >
+            🛒 <span id="cartCount">0</span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- TOP IMAGE SLIDER -->
+
+<section
+    class="top-slider"
+    id="topSlider"
+    aria-label="Shop images"
+>
+
+    <div
+        class="top-slider-track"
+        id="topSliderTrack"
+    >
+
+        <div
+            class="top-slider-empty"
+            id="topSliderEmpty"
+        >
+            Fresh Kushwaha Saag Sabzi
+        </div>
+
+    </div>
+
+    <button
+        class="top-slider-arrow top-slider-prev"
+        onclick="previousTopSlide()"
+        aria-label="Previous"
+    >
+        ‹
+    </button>
+
+    <button
+        class="top-slider-arrow top-slider-next"
+        onclick="nextTopSlide()"
+        aria-label="Next"
+    >
+        ›
+    </button>
+
+    <div
+        class="top-slider-dots"
+        id="topSliderDots"
+    ></div>
+
+</section>
+
+
+<section class="hero">
+
+    <h1 id="heroShopTitle">
+        Kushwaha Saag Sabzi Thok pasal 
+    </h1>
+
+    <p>
+        Fresh vegetables at wholesale prices
+         At rangeli -07 morang bus park 
+    </p>
+
+    <span
+        class="status"
+        id="shopStatus"
+    >
+        Loading...
+    </span>
+
+</section>
+
+
+<main class="container">
+
+    <div class="main-slots">
+
+        <button
+            class="slot products-slot"
+            onclick="showProducts()"
+        >
+
+            <div class="slot-icon">
+                🥬
+            </div>
+
+            <h2>
+                Saag Sabzi
+            </h2>
+
+            <p>
+                View fresh vegetables
+            </p>
+
+        </button>
+
+
+        <button
+            class="slot orders-slot"
+            onclick="showCart()"
+        >
+
+            <div class="slot-icon">
+                🛒
+            </div>
+
+            <h2>
+                My Cart
+            </h2>
+
+            <p>
+                View your order
+            </p>
+
+        </button>
+
+    </div>
+
+
+    <section
+        class="section"
+        id="productsSection"
+    >
+
+        <div class="section-header">
+
+            <h2>
+                🥬 Fresh Products
+            </h2>
+
+        </div>
+
+        <input
+            class="search"
+            id="searchInput"
+            placeholder="Search vegetables..."
+            oninput="filterProducts()"
+        >
+
+        <div
+            id="productGrid"
+            class="product-grid"
+        >
+
+            <div class="loading">
+                Loading products...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section
+        class="section"
+        id="cartSection"
+        style="display:none"
+    >
+
+        <div class="section-header">
+
+            <h2>
+                🛒 Your Cart
+            </h2>
+
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="total">
+
+            Total: Rs.
+            <span id="cartTotal">
+                0
+            </span>
+
+        </div>
+
+        <button
+            class="primary-btn"
+            onclick="openCheckout()"
+        >
+            Proceed to Checkout
+        </button>
+
+        <button
+            class="secondary-btn"
+            onclick="showProducts()"
+        >
+            Continue Shopping
+        </button>
+
+    </section>
+
+
+    <section
+        class="section"
+        id="ordersSection"
+        style="display:none"
+    >
+
+        <div class="section-header">
+
+            <h2>
+                📦 My Orders
+            </h2>
+
+        </div>
+
+        <div id="ordersList">
+
+            <p style="color:#777">
+                Enter your phone number to view orders.
+            </p>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Phone Number
+            </label>
+
+            <input
+                id="orderPhone"
+                placeholder="98XXXXXXXX"
+            >
+
+        </div>
+
+        <button
+            class="primary-btn"
+            onclick="loadCustomerOrders()"
+        >
+            View My Orders
+        </button>
+
+    </section>
+
+</main>
+
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+    onclick="closeSidebar()"
+></div>
+
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+    <div class="sidebar-head">
+
+        <div class="sidebar-logo">
+            S
+        </div>
+
+        <h2 id="sidebarShopTitle">
+            Kushwaha Saag Sabzi
+        </h2>
+
+        <p>
+            Thok Fasal
+        </p>
+
+    </div>
+
+    <div class="menu">
+
+        <button
+            onclick="showProducts();closeSidebar()"
+        >
+            🥬 &nbsp; Saag Sabzi
+        </button>
+
+        <button
+            onclick="showCart();closeSidebar()"
+        >
+            🛒 &nbsp; My Cart
+        </button>
+
+        <button
+            onclick="showOrders();closeSidebar()"
+        >
+            📦 &nbsp; My Orders
+        </button>
+
+        <button
+            onclick="showProfile();closeSidebar()"
+        >
+            👤 &nbsp; Customer Profile
+        </button>
+
+        <div class="menu-divider"></div>
+
+        <button
+            onclick="showContact();closeSidebar()"
+        >
+            📞 &nbsp; Contact Owner
+        </button>
+
+        <button
+            onclick="openOwnerLogin();closeSidebar()"
+        >
+            🔐 &nbsp; Owner Login
+        </button>
+
+        <div class="menu-divider"></div>
+
+        <button
+            onclick="showAbout();closeSidebar()"
+        >
+            ℹ️ &nbsp; About Shop
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- CHECKOUT -->
+
+<div
+    class="modal-overlay"
+    id="checkoutModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-head">
+
+            <h2>
+                🛍️ Checkout
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('checkoutModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Customer Name *
+            </label>
+
+            <input
+                id="customerName"
+                placeholder="Your full name"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Phone Number *
+            </label>
+
+            <input
+                id="customerPhone"
+                placeholder="98XXXXXXXX"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Buyer Type *
+            </label>
+
+            <select id="buyerType">
+
+                <option value="">
+                    Select buyer type
+                </option>
+
+                <option value="Retailer">
+                    Retailer
+                </option>
+
+                <option value="Wholesaler">
+                    Wholesaler
+                </option>
+
+                <option value="Restaurant">
+                    Restaurant
+                </option>
+
+                <option value="Hotel">
+                    Hotel
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Delivery Address *
+            </label>
+
+            <textarea
+                id="customerAddress"
+                placeholder="Enter complete delivery address"
+            ></textarea>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                GPS Location / Google Maps Link
+            </label>
+
+            <input
+                id="customerLocation"
+                placeholder="Paste Google Maps link"
+            >
+
+        </div>
+
+        <button
+            class="secondary-btn"
+            onclick="getGPSLocation()"
+        >
+            📍 Get My GPS Location
+        </button>
+
+        <div
+            class="form-group"
+            style="margin-top:15px"
+        >
+
+            <label>
+                Payment Method *
+            </label>
+
+            <select
+                id="paymentMethod"
+                onchange="paymentChanged()"
+            >
+
+                <option value="">
+                    Select payment method
+                </option>
+
+                <option value="COD">
+                    Cash on Delivery
+                </option>
+
+                <option value="eSewa">
+                    eSewa
+                </option>
+
+                <option value="Bank/Other">
+                    Bank / Other
+                </option>
+
+            </select>
+
+        </div>
+
+        <div
+            id="paymentArea"
+            style="display:none"
+        >
+
+            <div
+                style="
+                background:#edf7ef;
+                padding:12px;
+                border-radius:10px;
+                margin-bottom:12px;
+                text-align:center;
+                "
+            >
+
+                <b>
+                    Payment QR
+                </b>
+
+                <br>
+
+                <img
+                    id="paymentQRImage"
+                    src=""
+                    style="
+                    max-width:220px;
+                    max-height:220px;
+                    margin-top:10px;
+                    border-radius:8px;
+                    "
+                >
+
+                <p
+                    id="noQRMessage"
+                    style="
+                    font-size:12px;
+                    color:#777;
+                    margin-top:8px;
+                    "
+                ></p>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    Payment Screenshot *
+                </label>
+
+                <input
+                    type="file"
+                    id="paymentScreenshot"
+                    accept="image/*"
+                >
+
+            </div>
+
+        </div>
+
+        <button
+            class="primary-btn"
+            onclick="placeOrder()"
+        >
+            ✅ Place Order
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div
+    class="modal-overlay"
+    id="profileModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-head">
+
+            <h2>
+                👤 Customer Profile
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('profileModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Name
+            </label>
+
+            <input
+                id="profileName"
+                placeholder="Your name"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Phone
+            </label>
+
+            <input
+                id="profilePhone"
+                placeholder="98XXXXXXXX"
+            >
+
+        </div>
+
+        <button
+            class="primary-btn"
+            onclick="saveProfile()"
+        >
+            Save Profile
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div
+    class="modal-overlay"
+    id="contactModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-head">
+
+            <h2>
+                📞 Contact Owner
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('contactModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div
+            style="
+            text-align:center;
+            padding:15px;
+            "
+        >
+
+            <div style="font-size:55px">
+                👨‍💼
+            </div>
+
+            <h2>
+                Dharmendra Mahato
+            </h2>
+
+            <p
+                style="
+                color:#777;
+                margin-top:5px;
+                "
+            >
+                Owner — Kushwaha Saag Sabzi Thok pasal
+            </p>
+
+            <a
+                href="tel:980-4048073"
+                style="
+                display:block;
+                background:#16803a;
+                color:white;
+                padding:13px;
+                border-radius:10px;
+                text-decoration:none;
+                margin-top:20px;
+                font-weight:bold;
+                "
+            >
+                📞 Call 980-4048073
+            </a>
+
+            <a
+                href="https://wa.me/9779804048073"
+                target="_blank"
+                style="
+                display:block;
+                background:#25D366;
+                color:white;
+                padding:13px;
+                border-radius:10px;
+                text-decoration:none;
+                margin-top:10px;
+                font-weight:bold;
+                "
+            >
+                💬 WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<div
+    class="modal-overlay"
+    id="aboutModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-head">
+
+            <h2>
+                ℹ️ About Us
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('aboutModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <p
+            style="
+            line-height:1.7;
+            color:#555;
+            "
+        >
+
+            <b>
+                Kushwaha Saag Sabzi Thok pasal
+            </b>
+            provides fresh vegetables and
+            agricultural products at wholesale prices.
+
+            <br><br>
+
+            We aim to make vegetable ordering simple,
+            convenient and reliable.
+
+            <br><br>
+
+            <b>
+                Owner:
+            </b>
+            Dharmendra Mahato
+
+            <br>
+
+            <b>
+                Contact:
+            </b>
+            +977 980-4048073
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- OWNER LOGIN -->
+
+<div
+    class="modal-overlay"
+    id="ownerLoginModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-head">
+
+            <h2>
+                🔐 Owner Login
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('ownerLoginModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Email
+            </label>
+
+            <input
+                id="ownerEmail"
+                type="email"
+                placeholder="Owner email"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Password
+            </label>
+
+            <input
+                id="ownerPassword"
+                type="password"
+                placeholder="Owner password"
+            >
+
+        </div>
+
+        <button
+            class="primary-btn"
+            onclick="ownerLogin()"
+        >
+            Login
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- OWNER DASHBOARD -->
+
+<div
+    class="modal-overlay"
+    id="adminModal"
+>
+
+    <div
+        class="modal"
+        style="max-width:800px"
+    >
+
+        <div class="modal-head">
+
+            <h2>
+                👑 Owner Dashboard
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('adminModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- ONLY THREE OWNER BUTTONS -->
+
+        <div class="owner-nav">
+
+            <button
+                class="owner-nav-btn active"
+                id="ownerNavOrders"
+                onclick="showOwnerPanel('orders')"
+            >
+                📦 Orders
+            </button>
+
+            <button
+                class="owner-nav-btn"
+                id="ownerNavCustomize"
+                onclick="showOwnerPanel('customize')"
+            >
+                ⚙️ Customize Website
+            </button>
+
+            <button
+                class="owner-nav-btn"
+                id="ownerNavTop"
+                onclick="showOwnerPanel('top')"
+            >
+                🖼️ Top View
+            </button>
+
+        </div>
+
+
+        <!-- ORDERS -->
+
+        <div
+            class="owner-panel active"
+            id="ownerPanelOrders"
+        >
+
+            <div class="section">
+
+                <h3>
+                    📊 Orders
+                </h3>
+
+                <p style="margin-top:10px">
+
+                    Total Products:
+                    <b id="adminProductCount">
+                        0
+                    </b>
+
+                </p>
+
+                <p style="margin-top:7px">
+
+                    Total Orders:
+                    <b id="adminOrderCount">
+                        0
+                    </b>
+
+                </p>
+
+            </div>
+
+
+            <div class="section">
+
+                <h3>
+                    📦 Customer Orders
+                </h3>
+
+                <div id="adminOrders">
+                    Loading...
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CUSTOMIZE -->
+
+        <div
+            class="owner-panel"
+            id="ownerPanelCustomize"
+        >
+
+            <div class="section">
+
+                <h3>
+                    ⚙️ Customize Website
+                </h3>
+
+
+                <div
+                    class="form-group"
+                    style="margin-top:12px"
+                >
+
+                    <label>
+                        Website / Shop Title
+                    </label>
+
+                    <input
+                        id="settingShopName"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone
+                    </label>
+
+                    <input
+                        id="settingPhone"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Address
+                    </label>
+
+                    <textarea
+                        id="settingAddress"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Shop Status
+                    </label>
+
+                    <select id="settingOpen">
+
+                        <option value="true">
+                            Open
+                        </option>
+
+                        <option value="false">
+                            Closed
+                        </option>
+
+                    </select>
+
+                    <div
+                        class="closed-shop-note"
+                        id="closedShopNote"
+                    >
+                        When Closed, customers cannot add products to the cart.
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="saveSettings()"
+                >
+                    💾 Save Website Settings
+                </button>
+
+            </div>
+
+
+            <!-- QR -->
+
+            <div class="section">
+
+                <h3>
+                    💳 Payment QR
+                </h3>
+
+                <input
+                    type="file"
+                    id="qrFile"
+                    accept="image/*"
+                    style="margin-top:12px"
+                >
+
+                <button
+                    class="primary-btn"
+                    onclick="uploadPaymentQR()"
+                >
+                    Upload / Change QR
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="removePaymentQR()"
+                >
+                    Remove QR
+                </button>
+
+            </div>
+
+
+            <!-- ADD PRODUCT -->
+
+            <div class="section">
+
+                <h3>
+                    🥬 Add Product
+                </h3>
+
+                <div
+                    class="form-group"
+                    style="margin-top:12px"
+                >
+
+                    <label>
+                        Product Name
+                    </label>
+
+                    <input id="productName">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        id="productDescription"
+                    ></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Unit
+                    </label>
+
+                    <select id="productUnit">
+
+                        <option value="Kg">
+                            Kg
+                        </option>
+
+                        <option value="Quintal">
+                            Quintal
+                        </option>
+
+                        <option value="Piece">
+                            Piece
+                        </option>
+
+                        <option value="Crate">
+                            Crate
+                        </option>
+
+                        <option value="Bag">
+                            Bag
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Price
+                    </label>
+
+                    <input
+                        id="productPrice"
+                        type="number"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Discount %
+                    </label>
+
+                    <input
+                        id="productDiscount"
+                        type="number"
+                        value="0"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Product Image
+                    </label>
+
+                    <input
+                        id="productImage"
+                        type="file"
+                        accept="image/*"
+                    >
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="addProduct()"
+                >
+                    ➕ Add Product
+                </button>
+
+            </div>
+
+
+            <!-- MANAGE PRODUCTS -->
+
+            <div class="section">
+
+                <h3>
+                    🥕 Manage Products
+                </h3>
+
+                <div id="adminProducts">
+                    Loading...
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOP VIEW -->
+
+        <div
+            class="owner-panel"
+            id="ownerPanelTop"
+        >
+
+            <div class="section">
+
+                <h3>
+                    🖼️ Top View Images
+                </h3>
+
+                <p
+                    style="
+                    font-size:12px;
+                    color:#777;
+                    line-height:1.6;
+                    margin-top:8px;
+                    "
+                >
+                    Upload up to
+                    <b>10 images</b>.
+                    The top slider changes automatically every
+                    <b>5 seconds</b>.
+                    Dots automatically show the uploaded images.
+                </p>
+
+
+                <div
+                    class="form-group"
+                    style="margin-top:12px"
+                >
+
+                    <label>
+                        Select Images (maximum 10)
+                    </label>
+
+                    <input
+                        id="topImages"
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onchange="checkTopImageLimit()"
+                    >
+
+                </div>
+
+
+                <div
+                    id="topImageCount"
+                    style="
+                    font-size:12px;
+                    color:#16803a;
+                    font-weight:bold;
+                    "
+                ></div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="uploadTopImages()"
+                >
+                    ⬆️ Upload Top Images
+                </button>
+
+
+                <div
+                    id="adminTopSlides"
+                    class="slide-upload-list"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="secondary-btn"
+            onclick="ownerLogout()"
+        >
+            Logout Owner
+        </button>
+
+    </div>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+    getDatabase,
+    ref,
+    set,
+    get,
+    push,
+    update,
+    remove,
+    onValue
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBFxMqJ7QjiYip9ZAi2cpTKCIeONbDPnGY",
+
+    authDomain:
+        "kushwaha-saag-sabzi.firebaseapp.com",
+
+    databaseURL:
+        "https://kushwaha-saag-sabzi-default-rtdb.firebaseio.com/",
+
+    projectId:
+        "kushwaha-saag-sabzi",
+
+    storageBucket:
+        "kushwaha-saag-sabzi.firebasestorage.app",
+
+    messagingSenderId:
+        "174560916399",
+
+    appId:
+        "1:174560916399:web:d8a941271be60a6f0ff55a"
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getDatabase(app);
+
+
+const OWNER_UID =
+    "6dzGk4gl7pNqiyneCSKCe2Hc5mo1";
+
+
+const CLOUDINARY_CLOUD_NAME =
+    "gwnyycxv";
+
+const CLOUDINARY_UPLOAD_PRESET =
+    "kushwaha_upload";
+
+
+let products = {};
+
+let cart =
+    JSON.parse(
+        localStorage.getItem(
+            "kushwahaCart"
+        ) || "{}"
+    );
+
+let paymentQR = "";
+
+let currentUser = null;
+
+let shopIsOpen = true;
+
+let topSlides = [];
+
+let currentTopSlide = 0;
+
+let topSlideTimer = null;
+
+const TOP_SLIDE_INTERVAL = 5000;
+
+
+/* =========================================
+   NORMALIZE PHONE
+========================================= */
+
+function normalizePhone(phone){
+
+    let p =
+        String(phone || "")
+        .replace(/\D/g,"");
+
+    if(
+        p.startsWith("977") &&
+        p.length === 13
+    ){
+
+        p =
+            p.slice(3);
+
+    }
+
+    return p;
+
+}
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+window.showToast = function(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    setTimeout(
+        () => {
+            toast.classList.remove("show");
+        },
+        3000
+    );
+
+};
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHtml(value){
+
+    if(
+        value === undefined ||
+        value === null
+    ){
+
+        return "";
+
+    }
+
+    return String(value)
+
+        .replaceAll("&","&amp;")
+
+        .replaceAll("<","&lt;")
+
+        .replaceAll(">","&gt;")
+
+        .replaceAll('"',"&quot;")
+
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================
+   CART
+========================================= */
+
+function saveCart(){
+
+    localStorage.setItem(
+        "kushwahaCart",
+        JSON.stringify(cart)
+    );
+
+    updateCartCount();
+
+}
+
+
+function updateCartCount(){
+
+    let count = 0;
+
+    Object.values(cart)
+        .forEach(item => {
+
+            count +=
+                Number(
+                    item.quantity || 0
+                );
+
+        });
+
+    document.getElementById(
+        "cartCount"
+    ).textContent =
+        count;
+
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+window.openSidebar = function(){
+
+    document
+        .getElementById("sidebar")
+        .classList.add("open");
+
+    document
+        .getElementById("sidebarOverlay")
+        .classList.add("show");
+
+};
+
+
+window.closeSidebar = function(){
+
+    document
+        .getElementById("sidebar")
+        .classList.remove("open");
+
+    document
+        .getElementById("sidebarOverlay")
+        .classList.remove("show");
+
+};
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+window.showProducts = function(){
+
+    document.getElementById(
+        "productsSection"
+    ).style.display = "block";
+
+    document.getElementById(
+        "cartSection"
+    ).style.display = "none";
+
+    document.getElementById(
+        "ordersSection"
+    ).style.display = "none";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+};
+
+
+window.showCart = function(){
+
+    document.getElementById(
+        "productsSection"
+    ).style.display = "none";
+
+    document.getElementById(
+        "cartSection"
+    ).style.display = "block";
+
+    document.getElementById(
+        "ordersSection"
+    ).style.display = "none";
+
+    renderCart();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+};
+
+
+window.showOrders = function(){
+
+    document.getElementById(
+        "productsSection"
+    ).style.display = "none";
+
+    document.getElementById(
+        "cartSection"
+    ).style.display = "none";
+
+    document.getElementById(
+        "ordersSection"
+    ).style.display = "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+};
+
+
+/* =========================================
+   LOAD PRODUCTS
+========================================= */
+
+onValue(
+    ref(
+        db,
+        "vegetableProducts"
+    ),
+
+    snapshot => {
+
+        products =
+            snapshot.val() || {};
+
+        renderProducts();
+
+        renderAdminProducts();
+
+        const count =
+            document.getElementById(
+                "adminProductCount"
+            );
+
+        if(count){
+
+            count.textContent =
+                Object.keys(products).length;
+
+        }
+
+    },
+
+    error => {
+
+        console.error(error);
+
+        document.getElementById(
+            "productGrid"
+        ).innerHTML =
+            `
+            <div class="loading">
+                Unable to load products.
+            </div>
+            `;
+
+    }
+);
+
+
+/* =========================================
+   RENDER PRODUCTS
+========================================= */
+
+function renderProducts(){
+
+    const grid =
+        document.getElementById(
+            "productGrid"
+        );
+
+    if(!grid)
+        return;
+
+    const search =
+        document.getElementById(
+            "searchInput"
+        ).value
+        .toLowerCase();
+
+    let html = "";
+
+    Object.entries(products)
+        .forEach(
+            ([id,p]) => {
+
+                const name =
+                    p.name || "";
+
+                if(
+                    search &&
+                    !name
+                        .toLowerCase()
+                        .includes(search)
+                ){
+
+                    return;
+
+                }
+
+                const price =
+                    Number(
+                        p.price || 0
+                    );
+
+                const discount =
+                    Number(
+                        p.discount || 0
+                    );
+
+                const finalPrice =
+                    price -
+                    (
+                        price *
+                        discount /
+                        100
+                    );
+
+                const image =
+                    p.image ||
+                    "https://via.placeholder.com/500x350?text=Vegetable";
+
+
+                html += `
+
+                <div class="product-card">
+
+                    <img
+                        class="product-image"
+                        src="${escapeHtml(image)}"
+                        onerror="this.src='https://via.placeholder.com/500x350?text=Vegetable'"
+                    >
+
+                    <div class="product-info">
+
+                        <div class="product-name">
+                            ${escapeHtml(name)}
+                        </div>
+
+                        <div class="product-description">
+                            ${escapeHtml(
+                                p.description || ""
+                            )}
+                        </div>
+
+                        <span class="unit">
+                            ${escapeHtml(
+                                p.unit || "Kg"
+                            )}
+                        </span>
+
+                        <div class="price">
+
+                            Rs.
+                            ${finalPrice.toFixed(2)}
+
+                            ${
+                                discount > 0
+                                ?
+                                `
+                                <span class="old-price">
+                                    Rs. ${price.toFixed(2)}
+                                </span>
+
+                                <span class="discount">
+                                    ${discount}% OFF
+                                </span>
+                                `
+                                :
+                                ""
+                            }
+
+                        </div>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart('${id}')"
+                            ${
+                                shopIsOpen
+                                ?
+                                ""
+                                :
+                                'disabled style="background:#999;cursor:not-allowed;opacity:.75"'
+                            }
+                        >
+
+                            ${
+                                shopIsOpen
+                                ?
+                                "🛒 Add to Cart"
+                                :
+                                "🔒 Shop Closed"
+                            }
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                `;
+
+            }
+        );
+
+
+    if(!html){
+
+        html =
+            `
+            <div class="loading">
+                No products found.
+            </div>
+            `;
+
+    }
+
+    grid.innerHTML =
+        html;
+
+}
+
+
+window.filterProducts = function(){
+
+    renderProducts();
+
+};
+
+
+/* =========================================
+   ADD TO CART
+========================================= */
+
+window.addToCart = function(id){
+
+    if(!shopIsOpen){
+
+        showToast(
+            "Shop is currently closed. Cart is disabled."
+        );
+
+        return;
+
+    }
+
+    const p =
+        products[id];
+
+    if(!p)
+        return;
+
+
+    if(!cart[id]){
+
+        cart[id] = {
+
+            name:p.name,
+
+            price:
+                Number(
+                    p.price || 0
+                ),
+
+            discount:
+                Number(
+                    p.discount || 0
+                ),
+
+            unit:
+                p.unit || "Kg",
+
+            quantity:1
+
+        };
+
+    }else{
+
+        cart[id].quantity++;
+
+    }
+
+
+    saveCart();
+
+    showToast(
+        p.name +
+        " added to cart"
+    );
+
+};
+
+
+/* =========================================
+   CHANGE CART QUANTITY
+========================================= */
+
+window.changeQty = function(
+    id,
+    amount
+){
+
+    if(!cart[id])
+        return;
+
+    cart[id].quantity +=
+        amount;
+
+    if(
+        cart[id].quantity <= 0
+    ){
+
+        delete cart[id];
+
+    }
+
+    saveCart();
+
+    renderCart();
+
+};
+
+
+/* =========================================
+   RENDER CART
+========================================= */
+
+function renderCart(){
+
+    const container =
+        document.getElementById(
+            "cartItems"
+        );
+
+    const entries =
+        Object.entries(cart);
+
+    if(entries.length === 0){
+
+        container.innerHTML =
+            `
+            <div class="loading">
+                Your cart is empty 🛒
+            </div>
+            `;
+
+        document.getElementById(
+            "cartTotal"
+        ).textContent =
+            "0";
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+    let html = "";
+
+
+    entries.forEach(
+        ([id,item]) => {
+
+            const price =
+                Number(
+                    item.price || 0
+                );
+
+            const discount =
+                Number(
+                    item.discount || 0
+                );
+
+            const finalPrice =
+                price -
+                (
+                    price *
+                    discount /
+                    100
+                );
+
+            const subtotal =
+                finalPrice *
+                Number(
+                    item.quantity || 0
+                );
+
+
+            total +=
+                subtotal;
+
+
+            html += `
+
+            <div class="cart-item">
+
+                <div class="cart-info">
+
+                    <div class="cart-name">
+                        ${escapeHtml(
+                            item.name
+                        )}
+                    </div>
+
+                    <div class="cart-price">
+                        Rs.
+                        ${finalPrice.toFixed(2)}
+                        /
+                        ${escapeHtml(
+                            item.unit
+                        )}
+                    </div>
+
+                </div>
+
+
+                <div class="qty">
+
+                    <button
+                        onclick="changeQty('${id}',-1)"
+                    >
+                        −
+                    </button>
+
+                    <b>
+                        ${item.quantity}
+                    </b>
+
+                    <button
+                        onclick="changeQty('${id}',1)"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        }
+    );
+
+
+    container.innerHTML =
+        html;
+
+    document.getElementById(
+        "cartTotal"
+    ).textContent =
+        total.toFixed(2);
+
+}
+
+
+/* =========================================
+   CHECKOUT
+========================================= */
+
+window.openCheckout = function(){
+
+    if(
+        Object.keys(cart).length === 0
+    ){
+
+        showToast(
+            "Your cart is empty."
+        );
+
+        return;
+
+    }
+
+    if(!shopIsOpen){
+
+        showToast(
+            "Shop is currently closed."
+        );
+
+        return;
+
+    }
+
+    document
+        .getElementById(
+            "checkoutModal"
+        )
+        .classList.add("show");
+
+    loadPaymentQR();
+
+    loadProfileIntoCheckout();
+
+};
+
+
+window.paymentChanged = function(){
+
+    const method =
+        document.getElementById(
+            "paymentMethod"
+        ).value;
+
+    const area =
+        document.getElementById(
+            "paymentArea"
+        );
+
+    if(
+        method === "COD" ||
+        method === ""
+    ){
+
+        area.style.display =
+            "none";
+
+    }else{
+
+        area.style.display =
+            "block";
+
+    }
+
+};
+
+
+/* =========================================
+   PAYMENT QR
+========================================= */
+
+async function loadPaymentQR(){
+
+    try{
+
+        const snap =
+            await get(
+                ref(
+                    db,
+                    "vegetableSettings/paymentQR"
+                )
+            );
+
+        paymentQR =
+            snap.val() || "";
+
+        const img =
+            document.getElementById(
+                "paymentQRImage"
+            );
+
+        const msg =
+            document.getElementById(
+                "noQRMessage"
+            );
+
+        if(paymentQR){
+
+            img.src =
+                paymentQR;
+
+            img.style.display =
+                "inline-block";
+
+            msg.textContent =
+                "";
+
+        }else{
+
+            img.style.display =
+                "none";
+
+            msg.textContent =
+                "Payment QR has not been added yet.";
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =========================================
+   PROFILE INTO CHECKOUT
+========================================= */
+
+async function loadProfileIntoCheckout(){
+
+    if(!currentUser)
+        return;
+
+    try{
+
+        const snap =
+            await get(
+                ref(
+                    db,
+                    "users/" +
+                    currentUser.uid
+                )
+            );
+
+        const data =
+            snap.val();
+
+        if(!data)
+            return;
+
+        document.getElementById(
+            "customerName"
+        ).value =
+            data.name || "";
+
+        document.getElementById(
+            "customerPhone"
+        ).value =
+            data.phone || "";
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =========================================
+   GPS
+========================================= */
+
+window.getGPSLocation = function(){
+
+    if(!navigator.geolocation){
+
+        showToast(
+            "GPS is not supported by this browser."
+        );
+
+        return;
+
+    }
+
+    showToast(
+        "Getting your location..."
+    );
+
+    navigator.geolocation.getCurrentPosition(
+
+        position => {
+
+            const lat =
+                position.coords.latitude;
+
+            const lng =
+                position.coords.longitude;
+
+            const maps =
+                `https://www.google.com/maps?q=${lat},${lng}`;
+
+            document.getElementById(
+                "customerLocation"
+            ).value =
+                maps;
+
+            showToast(
+                "GPS location added."
+            );
+
+        },
+
+        error => {
+
+            console.error(error);
+
+            showToast(
+                "Unable to get GPS location."
+            );
+
+        },
+
+        {
+            enableHighAccuracy:true,
+            timeout:10000
+        }
+
+    );
+
+};
+
+
+/* =========================================
+   CLOUDINARY
+========================================= */
+
+async function uploadToCloudinary(file){
+
+    const formData =
+        new FormData();
+
+    formData.append(
+        "file",
+        file
+    );
+
+    formData.append(
+        "upload_preset",
+        CLOUDINARY_UPLOAD_PRESET
+    );
+
+    const response =
+        await fetch(
+
+            `https://api.cloudinary.com/v1_1/${encodeURIComponent(CLOUDINARY_CLOUD_NAME)}/image/upload`,
+
+            {
+                method:"POST",
+                body:formData
+            }
+
+        );
+
+    if(!response.ok){
+
+        throw new Error(
+            "Cloudinary upload failed"
+        );
+
+    }
+
+    const data =
+        await response.json();
+
+    return data.secure_url;
+
+}
+
+
+/* =========================================
+   PLACE ORDER
+========================================= */
+
+window.placeOrder = async function(){
+
+    if(!shopIsOpen){
+
+        showToast(
+            "Shop is currently closed."
+        );
+
+        return;
+
+    }
+
+    const name =
+        document.getElementById(
+            "customerName"
+        ).value.trim();
+
+    const phone =
+        document.getElementById(
+            "customerPhone"
+        ).value.trim();
+
+    const buyerType =
+        document.getElementById(
+            "buyerType"
+        ).value;
+
+    const address =
+        document.getElementById(
+            "customerAddress"
+        ).value.trim();
+
+    const location =
+        document.getElementById(
+            "customerLocation"
+        ).value.trim();
+
+    const paymentMethod =
+        document.getElementById(
+            "paymentMethod"
+        ).value;
+
+    const screenshot =
+        document.getElementById(
+            "paymentScreenshot"
+        ).files[0];
+
+
+    if(
+        !name ||
+        !phone ||
+        !buyerType ||
+        !address ||
+        !paymentMethod
+    ){
+
+        showToast(
+            "Please fill all required fields."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        paymentMethod !== "COD" &&
+        !screenshot
+    ){
+
+        showToast(
+            "Please upload payment screenshot."
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        showToast(
+            "Placing order..."
+        );
+
+        let screenshotURL =
+            "";
+
+        if(screenshot){
+
+            screenshotURL =
+                await uploadToCloudinary(
+                    screenshot
+                );
+
+        }
+
+
+        let total =
+            0;
+
+        const orderItems =
+            {};
+
+
+        Object.entries(cart)
+            .forEach(
+                ([id,item]) => {
+
+                    const price =
+                        Number(
+                            item.price || 0
+                        );
+
+                    const discount =
+                        Number(
+                            item.discount || 0
+                        );
+
+                    const finalPrice =
+                        price -
+                        (
+                            price *
+                            discount /
+                            100
+                        );
+
+                    const quantity =
+                        Number(
+                            item.quantity || 0
+                        );
+
+                    const subtotal =
+                        finalPrice *
+                        quantity;
+
+                    total +=
+                        subtotal;
+
+                    orderItems[id] = {
+
+                        name:item.name,
+
+                        unit:item.unit,
+
+                        price:finalPrice,
+
+                        quantity,
+
+                        subtotal
+
+                    };
+
+                }
+            );
+
+
+        const orderRef =
+            push(
+                ref(
+                    db,
+                    "vegetableOrders"
+                )
+            );
+
+
+        const orderData = {
+
+            customerName:name,
+
+            phone,
+
+            buyerType,
+
+            address,
+
+            location,
+
+            paymentMethod,
+
+            paymentStatus:
+                paymentMethod === "COD"
+                ?
+                "COD"
+                :
+                "Pending Verification",
+
+            paymentScreenshot:
+                screenshotURL,
+
+            items:
+                orderItems,
+
+            total:
+                Number(
+                    total.toFixed(2)
+                ),
+
+            status:
+                "Pending",
+
+            createdAt:
+                Date.now()
+
+        };
+
+
+        await set(
+            orderRef,
+            orderData
+        );
+
+
+        const trackingPhone =
+            normalizePhone(
+                phone
+            );
+
+
+        if(trackingPhone){
+
+            await set(
+
+                ref(
+                    db,
+                    "orderTracking/" +
+                    trackingPhone +
+                    "/" +
+                    orderRef.key
+                ),
+
+                {
+
+                    orderId:
+                        orderRef.key,
+
+                    customerName:
+                        name,
+
+                    items:
+                        Object.values(
+                            orderItems
+                        ).map(
+                            item => ({
+
+                                name:
+                                    item.name,
+
+                                unit:
+                                    item.unit,
+
+                                price:
+                                    Number(
+                                        item.price || 0
+                                    ),
+
+                                quantity:
+                                    Number(
+                                        item.quantity || 0
+                                    ),
+
+                                subtotal:
+                                    Number(
+                                        item.subtotal || 0
+                                    )
+
+                            })
+                        ),
+
+                    status:
+                        "Pending",
+
+                    total:
+                        Number(
+                            total.toFixed(2)
+                        ),
+
+                    paymentMethod,
+
+                    paymentStatus:
+                        paymentMethod === "COD"
+                        ?
+                        "COD"
+                        :
+                        "Pending Verification",
+
+                    createdAt:
+                        orderData.createdAt
+
+                }
+
+            );
+
+        }
+
+
+        cart = {};
+
+        saveCart();
+
+
+        document
+            .getElementById(
+                "checkoutModal"
+            )
+            .classList.remove("show");
+
+
+        showToast(
+            "Order placed successfully!"
+        );
+
+
+        showOrders();
+
+
+        document.getElementById(
+            "orderPhone"
+        ).value =
+            phone;
+
+
+        setTimeout(
+            () => {
+                loadCustomerOrders();
+            },
+            300
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showToast(
+            "Order failed. Please try again."
+        );
+
+    }
+
+};
+
+
+/* =========================================
+   CUSTOMER ORDERS
+========================================= */
+
+window.loadCustomerOrders = async function(){
+
+    const phone =
+        document.getElementById(
+            "orderPhone"
+        ).value.trim();
+
+    if(!phone){
+
+        showToast(
+            "Enter your phone number."
+        );
+
+        return;
+
+    }
+
+    const trackingPhone =
+        normalizePhone(phone);
+
+    if(!trackingPhone){
+
+        showToast(
+            "Enter a valid phone number."
+        );
+
+        return;
+
+    }
+
+    const list =
+        document.getElementById(
+            "ordersList"
+        );
+
+    list.innerHTML =
+        `
+        <div class="loading">
+            Loading your orders...
+        </div>
+        `;
+
+
+    try{
+
+        const snap =
+            await get(
+
+                ref(
+                    db,
+                    "orderTracking/" +
+                    trackingPhone
+                )
+
+            );
+
+
+        const data =
+            snap.val() || {};
+
+        let html =
+            "";
+
+
+        Object.entries(data)
+
+            .sort(
+                (a,b) =>
+                    Number(
+                        b[1].createdAt || 0
+                    ) -
+                    Number(
+                        a[1].createdAt || 0
+                    )
+            )
+
+            .forEach(
+                ([id,order]) => {
+
+                    const status =
+                        order.status ||
+                        "Pending";
+
+
+                    html += `
+
+                    <div class="order-card">
+
+                        <div class="order-top">
+
+                            <div class="order-id">
+
+                                Order #
+
+                                ${escapeHtml(
+                                    String(
+                                        order.orderId ||
+                                        id
+                                    ).slice(-6)
+                                )}
+
+                            </div>
+
+                            <span class="badge">
+
+                                ${escapeHtml(
+                                    status
+                                )}
+
+                            </span>
+
+                        </div>
+
+
+                        ${
+                            order.customerName
+                            ?
+                            `
+                            <div class="order-customer-name">
+
+                                👤 Name:
+                                ${escapeHtml(
+                                    order.customerName
+                                )}
+
+                            </div>
+                            `
+                            :
+                            ""
+                        }
+
+
+                        ${
+                            Array.isArray(order.items) &&
+                            order.items.length > 0
+                            ?
+                            `
+                            <div class="order-products">
+
+                                <div class="order-products-title">
+                                    🥬 Products Ordered
+                                </div>
+
+                                ${
+                                    order.items
+                                    .map(
+                                        item => `
+
+                                        <div class="order-product-row">
+
+                                            <span>
+
+                                                ${escapeHtml(
+                                                    item.name || ""
+                                                )}
+
+                                                ×
+
+                                                ${Number(
+                                                    item.quantity || 0
+                                                )}
+
+                                                ${escapeHtml(
+                                                    item.unit || ""
+                                                )}
+
+                                            </span>
+
+                                            <span>
+
+                                                Rs.
+
+                                                ${Number(
+                                                    item.subtotal || 0
+                                                ).toFixed(2)}
+
+                                            </span>
+
+                                        </div>
+
+                                        `
+                                    )
+                                    .join("")
+                                }
+
+                            </div>
+                            `
+                            :
+                            ""
+                        }
+
+
+                        <div class="order-details">
+
+                            Date:
+                            ${formatDate(
+                                order.createdAt
+                            )}
+
+                            <br>
+
+                            Total:
+                            <b>
+                                Rs.
+                                ${Number(
+                                    order.total || 0
+                                ).toFixed(2)}
+                            </b>
+
+                            <br>
+
+                            Payment:
+                            ${escapeHtml(
+                                order.paymentMethod || ""
+                            )}
+
+                            <br>
+
+                            Payment Status:
+                            ${escapeHtml(
+                                order.paymentStatus || ""
+                            )}
+
+                        </div>
+
+                    </div>
+
+                    `;
+
+                }
+            );
+
+
+        if(!html){
+
+            html =
+                `
+                <p style="color:#777">
+                    No orders found for this phone number.
+                </p>
+                `;
+
+        }
+
+        list.innerHTML =
+            html;
+
+
+    }catch(error){
+
+        console.error(error);
+
+        list.innerHTML =
+            `
+            <p style="color:red">
+                Unable to load orders.
+            </p>
+            `;
+
+    }
+
+};
+
+
+function formatDate(timestamp){
+
+    if(!timestamp)
+        return "";
+
+    return new Date(timestamp)
+        .toLocaleString();
+
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+window.showProfile = async function(){
+
+    document
+        .getElementById(
+            "profileModal"
+        )
+        .classList.add("show");
+
+
+    if(!currentUser)
+        return;
+
+
+    try{
+
+        const snap =
+            await get(
+                ref(
+                    db,
+                    "users/" +
+                    currentUser.uid
+                )
+            );
+
+        const data =
+            snap.val();
+
+        if(data){
+
+            document.getElementById(
+                "profileName"
+            ).value =
+                data.name || "";
+
+            document.getElementById(
+                "profilePhone"
+            ).value =
+                data.phone || "";
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+};
+
+
+window.saveProfile = async function(){
+
+    if(!currentUser){
+
+        showToast(
+            "Please wait and try again."
+        );
+
+        return;
+
+    }
+
+
+    const name =
+        document.getElementById(
+            "profileName"
+        ).value.trim();
+
+    const phone =
+        document.getElementById(
+            "profilePhone"
+        ).value.trim();
+
+
+    try{
+
+        await set(
+
+            ref(
+                db,
+                "users/" +
+                currentUser.uid
+            ),
+
+            {
+
+                name,
+
+                phone,
+
+                updatedAt:
+                    Date.now()
+
+            }
+
+        );
+
+
+        showToast(
+            "Profile saved."
+        );
+
+
+        closeModal(
+            "profileModal"
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showToast(
+            "Unable to save profile."
+        );
+
+    }
+
+};
+
+
+/* =========================================
+   CONTACT / ABOUT / MODAL
+========================================= */
+
+window.showContact = function(){
+
+    document
+        .getElementById(
+            "contactModal"
+        )
+        .classList.add("show");
+
+};
+
+
+window.showAbout = function(){
+
+    document
+        .getElementById(
+            "aboutModal"
+        )
+        .classList.add("show");
+
+};
+
+
+window.closeModal = function(id){
+
+    document
+        .getElementById(id)
+        .classList.remove("show");
+
+};
+
+
+/* =========================================
+   TOP IMAGE SLIDER
+========================================= */
+
+function renderTopSlider(){
+
+    const track =
+        document.getElementById(
+            "topSliderTrack"
+        );
+
+    const dots =
+        document.getElementById(
+            "topSliderDots"
+        );
+
+    if(!track || !dots)
+        return;
+
+
+    if(!topSlides.length){
+
+        track.innerHTML =
+            `
+            <div
+                class="top-slider-empty"
+                id="topSliderEmpty"
+            >
+                Fresh Kushwaha Saag Sabzi
+            </div>
+            `;
+
+        dots.innerHTML =
+            "";
+
+        currentTopSlide =
+            0;
+
+        return;
+
+    }
+
+
+    track.innerHTML =
+        topSlides
+        .map(
+            (url,index) => `
+
+            <img
+                class="top-slide ${
+                    index === currentTopSlide
+                    ?
+                    "active"
+                    :
+                    ""
+                }"
+                src="${escapeHtml(url)}"
+                alt="Kushwaha Saag Sabzi"
+                onerror="this.style.display='none'"
+            >
+
+            `
+        )
+        .join("");
+
+
+    dots.innerHTML =
+        topSlides
+        .map(
+            (url,index) => `
+
+            <button
+                class="top-slider-dot ${
+                    index === currentTopSlide
+                    ?
+                    "active"
+                    :
+                    ""
+                }"
+                onclick="goToTopSlide(${index})"
+                aria-label="Slide ${index+1}"
+            ></button>
+
+            `
+        )
+        .join("");
+
+}
+
+
+window.goToTopSlide = function(index){
+
+    if(!topSlides.length)
+        return;
+
+    currentTopSlide =
+        (
+            index +
+            topSlides.length
+        )
+        %
+        topSlides.length;
+
+    renderTopSlider();
+
+};
+
+
+window.nextTopSlide = function(){
+
+    if(
+        topSlides.length > 1
+    ){
+
+        goToTopSlide(
+            currentTopSlide + 1
+        );
+
+    }
+
+};
+
+
+window.previousTopSlide = function(){
+
+    if(
+        topSlides.length > 1
+    ){
+
+        goToTopSlide(
+            currentTopSlide - 1
+        );
+
+    }
+
+};
+
+
+function startTopSlideTimer(){
+
+    clearInterval(
+        topSlideTimer
+    );
+
+    topSlideTimer =
+        setInterval(
+            () => {
+
+                if(
+                    topSlides.length > 1
+                ){
+
+                    nextTopSlide();
+
+                }
+
+            },
+            TOP_SLIDE_INTERVAL
+        );
+
+}
+
+
+function loadTopSlides(){
+
+    onValue(
+
+        ref(
+            db,
+            "vegetableSettings/topSlides"
+        ),
+
+        snapshot => {
+
+            const data =
+                snapshot.val();
+
+            topSlides =
+                Array.isArray(data)
+                ?
+                data.filter(Boolean)
+                :
+                Object.values(
+                    data || {}
+                ).filter(Boolean);
+
+            topSlides =
+                topSlides.slice(
+                    0,
+                    10
+                );
+
+            if(
+                currentTopSlide >=
+                topSlides.length
+            ){
+
+                currentTopSlide =
+                    0;
+
+            }
+
+            renderTopSlider();
+
+            renderAdminTopSlides();
+
+            startTopSlideTimer();
+
+        }
+
+    );
+
+}
+
+
+function renderAdminTopSlides(){
+
+    const box =
+        document.getElementById(
+            "adminTopSlides"
+        );
+
+    const count =
+        document.getElementById(
+            "topImageCount"
+        );
+
+
+    if(count){
+
+        count.textContent =
+            `${topSlides.length}/10 images uploaded`;
+
+    }
+
+
+    if(!box)
+        return;
+
+
+    if(!topSlides.length){
+
+        box.innerHTML =
+            `
+            <div
+                style="
+                grid-column:1/-1;
+                color:#777;
+                font-size:12px;
+                padding:8px 0;
+                "
+            >
+                No top images uploaded yet.
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+    box.innerHTML =
+        topSlides
+        .map(
+            (url,index) => `
+
+            <div
+                class="slide-admin-card"
+            >
+
+                <img
+                    src="${escapeHtml(url)}"
+                    alt="Top slide ${index+1}"
+                >
+
+                <button
+                    class="slide-remove-btn"
+                    onclick="removeTopSlide(${index})"
+                    title="Remove"
+                >
+                    ×
+                </button>
+
+                <span>
+                    Image ${index+1}
+                </span>
+
+            </div>
+
+            `
+        )
+        .join("");
+
+}
+
+
+window.checkTopImageLimit = function(){
+
+    const input =
+        document.getElementById(
+            "topImages"
+        );
+
+    const count =
+        document.getElementById(
+            "topImageCount"
+        );
+
+    if(!input)
+        return;
+
+
+    const available =
+        Math.max(
+            0,
+            10 -
+            topSlides.length
+        );
+
+
+    if(
+        input.files.length >
+        available
+    ){
+
+        showToast(
+            `You can upload only ${available} more image(s). Maximum is 10.`
+        );
+
+        input.value =
+            "";
+
+        if(count){
+
+            count.textContent =
+                `${topSlides.length}/10 images uploaded`;
+
+        }
+
+        return;
+
+    }
+
+
+    if(count){
+
+        count.textContent =
+            `${topSlides.length}/10 uploaded • ${input.files.length} selected`;
+
+    }
+
+};
+
+
+window.uploadTopImages =
+    async function(){
+
+        if(!isOwner())
+            return;
+
+
+        const input =
+            document.getElementById(
+                "topImages"
+            );
+
+
+        if(
+            !input ||
+            !input.files.length
+        ){
+
+            showToast(
+                "Select top images first."
+            );
+
+            return;
+
+        }
+
+
+        if(
+            topSlides.length +
+            input.files.length >
+            10
+        ){
+
+            showToast(
+                "Maximum 10 top images are allowed."
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            showToast(
+                "Uploading top images..."
+            );
+
+
+            const urls =
+                [];
+
+
+            for(
+                const file of
+                Array.from(
+                    input.files
+                )
+            ){
+
+                urls.push(
+                    await uploadToCloudinary(
+                        file
+                    )
+                );
+
+            }
+
+
+            const updated =
+                topSlides
+                .concat(urls)
+                .slice(
+                    0,
+                    10
+                );
+
+
+            await set(
+
+                ref(
+                    db,
+                    "vegetableSettings/topSlides"
+                ),
+
+                updated
+
+            );
+
+
+            input.value =
+                "";
+
+
+            showToast(
+                "Top images uploaded."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Top image upload failed."
+            );
+
+        }
+
+    };
+
+
+window.removeTopSlide =
+    async function(index){
+
+        if(!isOwner())
+            return;
+
+
+        if(
+            index < 0 ||
+            index >= topSlides.length
+        ){
+
+            return;
+
+        }
+
+
+        if(
+            !confirm(
+                "Remove this top image?"
+            )
+        ){
+
+            return;
+
+        }
+
+
+        try{
+
+            const updated =
+                topSlides.filter(
+                    (url,i) =>
+                        i !== index
+                );
+
+
+            await set(
+
+                ref(
+                    db,
+                    "vegetableSettings/topSlides"
+                ),
+
+                updated
+
+            );
+
+
+            if(
+                currentTopSlide >=
+                updated.length
+            ){
+
+                currentTopSlide =
+                    0;
+
+            }
+
+
+            showToast(
+                "Top image removed."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Unable to remove top image."
+            );
+
+        }
+
+    };
+
+
+/* =========================================
+   OWNER THREE PANELS
+========================================= */
+
+window.showOwnerPanel =
+    function(panel){
+
+        [
+            "orders",
+            "customize",
+            "top"
+        ]
+        .forEach(
+            name => {
+
+                const first =
+                    name
+                    .charAt(0)
+                    .toUpperCase();
+
+                const rest =
+                    name.slice(1);
+
+                const panelEl =
+                    document.getElementById(
+                        "ownerPanel" +
+                        first +
+                        rest
+                    );
+
+                const navEl =
+                    document.getElementById(
+                        "ownerNav" +
+                        first +
+                        rest
+                    );
+
+                if(panelEl){
+
+                    panelEl.classList.toggle(
+                        "active",
+                        name === panel
+                    );
+
+                }
+
+                if(navEl){
+
+                    navEl.classList.toggle(
+                        "active",
+                        name === panel
+                    );
+
+                }
+
+            }
+        );
+
+
+        if(
+            panel === "top"
+        ){
+
+            renderAdminTopSlides();
+
+        }
+
+    };
+
+
+loadTopSlides();
+
+
+/* =========================================
+   OWNER LOGIN
+========================================= */
+
+window.openOwnerLogin = function(){
+
+    document
+        .getElementById(
+            "ownerLoginModal"
+        )
+        .classList.add("show");
+
+};
+
+
+window.ownerLogin =
+    async function(){
+
+        const email =
+            document.getElementById(
+                "ownerEmail"
+            ).value.trim();
+
+        const password =
+            document.getElementById(
+                "ownerPassword"
+            ).value;
+
+
+        if(
+            !email ||
+            !password
+        ){
+
+            showToast(
+                "Enter email and password."
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            const result =
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+
+            if(
+                result.user.uid !==
+                OWNER_UID
+            ){
+
+                await signOut(
+                    auth
+                );
+
+                showToast(
+                    "This account is not the owner."
+                );
+
+                return;
+
+            }
+
+
+            closeModal(
+                "ownerLoginModal"
+            );
+
+
+            openAdminDashboard();
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Login failed. Check email/password."
+            );
+
+        }
+
+    };
+
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        currentUser =
+            user || null;
+
+    }
+);
+
+
+/* =========================================
+   OWNER DASHBOARD
+========================================= */
+
+async function openAdminDashboard(){
+
+    document
+        .getElementById(
+            "adminModal"
+        )
+        .classList.add("show");
+
+
+    showOwnerPanel(
+        "orders"
+    );
+
+
+    loadAdminSettings();
+
+    loadAdminOrders();
+
+    renderAdminProducts();
+
+}
+
+
+async function loadAdminSettings(){
+
+    try{
+
+        const snap =
+            await get(
+                ref(
+                    db,
+                    "vegetableSettings"
+                )
+            );
+
+
+        const data =
+            snap.val() || {};
+
+
+        document.getElementById(
+            "settingShopName"
+        ).value =
+            data.shopName ||
+            "Kushwaha Saag Sabzi Thok Fasal";
+
+
+        document.getElementById(
+            "settingPhone"
+        ).value =
+            data.phone ||
+            "9804781218";
+
+
+        document.getElementById(
+            "settingAddress"
+        ).value =
+            data.address ||
+            "";
+
+
+        document.getElementById(
+            "settingOpen"
+        ).value =
+            String(
+                data.open !== false
+            );
+
+
+        const closedNote =
+            document.getElementById(
+                "closedShopNote"
+            );
+
+
+        if(closedNote){
+
+            closedNote.style.display =
+                data.open === false
+                ?
+                "block"
+                :
+                "none";
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =========================================
+   OPEN/CLOSED SELECT
+========================================= */
+
+document.addEventListener(
+    "change",
+    event => {
+
+        if(
+            event.target &&
+            event.target.id ===
+            "settingOpen"
+        ){
+
+            const note =
+                document.getElementById(
+                    "closedShopNote"
+                );
+
+            if(note){
+
+                note.style.display =
+                    event.target.value === "false"
+                    ?
+                    "block"
+                    :
+                    "none";
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   SAVE SETTINGS
+========================================= */
+
+window.saveSettings =
+    async function(){
+
+        if(
+            !currentUser ||
+            currentUser.uid !==
+            OWNER_UID
+        ){
+
+            showToast(
+                "Owner access required."
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            await update(
+
+                ref(
+                    db,
+                    "vegetableSettings"
+                ),
+
+                {
+
+                    shopName:
+                        document.getElementById(
+                            "settingShopName"
+                        ).value.trim(),
+
+                    phone:
+                        document.getElementById(
+                            "settingPhone"
+                        ).value.trim(),
+
+                    address:
+                        document.getElementById(
+                            "settingAddress"
+                        ).value.trim(),
+
+                    open:
+                        document.getElementById(
+                            "settingOpen"
+                        ).value === "true"
+
+                }
+
+            );
+
+
+            showToast(
+                "Settings saved."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Unable to save settings."
+            );
+
+        }
+
+    };
+
+
+/* =========================================
+   LIVE WEBSITE SETTINGS
+========================================= */
+
+onValue(
+
+    ref(
+        db,
+        "vegetableSettings"
+    ),
+
+    snapshot => {
+
+        const data =
+            snapshot.val() || {};
+
+
+        const shopName =
+            data.shopName ||
+            "Kushwaha Saag Sabzi Thok Fasal";
+
+
+        const headerTitle =
+            document.getElementById(
+                "headerShopTitle"
+            );
+
+
+        const heroTitle =
+            document.getElementById(
+                "heroShopTitle"
+            );
+
+
+        const sidebarTitle =
+            document.getElementById(
+                "sidebarShopTitle"
+            );
+
+
+        if(headerTitle){
+
+            headerTitle.textContent =
+                shopName.replace(
+                    /\s+Thok Fasal\s*$/i,
+                    ""
+                );
+
+        }
+
+
+        if(heroTitle){
+
+            heroTitle.textContent =
+                shopName;
+
+        }
+
+
+        if(sidebarTitle){
+
+            sidebarTitle.textContent =
+                shopName.replace(
+                    /\s+Thok Fasal\s*$/i,
+                    ""
+                );
+
+        }
+
+
+        document.title =
+            shopName;
+
+
+        const open =
+            data.open !== false;
+
+
+        shopIsOpen =
+            open;
+
+
+        renderProducts();
+
+
+        const status =
+            document.getElementById(
+                "shopStatus"
+            );
+
+
+        status.textContent =
+            open
+            ?
+            "● OPEN"
+            :
+            "● CLOSED";
+
+
+        status.style.color =
+            open
+            ?
+            "#16803a"
+            :
+            "#c62828";
+
+    }
+
+);
+
+
+/* =========================================
+   PAYMENT QR OWNER
+========================================= */
+
+window.uploadPaymentQR =
+    async function(){
+
+        if(!isOwner())
+            return;
+
+
+        const file =
+            document.getElementById(
+                "qrFile"
+            ).files[0];
+
+
+        if(!file){
+
+            showToast(
+                "Select a QR image first."
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            showToast(
+                "Uploading QR..."
+            );
+
+
+            const url =
+                await uploadToCloudinary(
+                    file
+                );
+
+
+            await set(
+
+                ref(
+                    db,
+                    "vegetableSettings/paymentQR"
+                ),
+
+                url
+
+            );
+
+
+            paymentQR =
+                url;
+
+
+            showToast(
+                "Payment QR updated."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "QR upload failed."
+            );
+
+        }
+
+    };
+
+
+window.removePaymentQR =
+    async function(){
+
+        if(!isOwner())
+            return;
+
+
+        try{
+
+            await remove(
+
+                ref(
+                    db,
+                    "vegetableSettings/paymentQR"
+                )
+
+            );
+
+
+            showToast(
+                "Payment QR removed."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Unable to remove QR."
+            );
+
+        }
+
+    };
+
+
+/* =========================================
+   ADD PRODUCT
+========================================= */
+
+window.addProduct =
+    async function(){
+
+        if(!isOwner())
+            return;
+
+
+        const name =
+            document.getElementById(
+                "productName"
+            ).value.trim();
+
+
+        const description =
+            document.getElementById(
+                "productDescription"
+            ).value.trim();
+
+
+        const unit =
+            document.getElementById(
+                "productUnit"
+            ).value;
+
+
+        const price =
+            Number(
+                document.getElementById(
+                    "productPrice"
+                ).value
+            );
+
+
+        const discount =
+            Number(
+                document.getElementById(
+                    "productDiscount"
+                ).value || 0
+            );
+
+
+        const file =
+            document.getElementById(
+                "productImage"
+            ).files[0];
+
+
+        if(
+            !name ||
+            !price
+        ){
+
+            showToast(
+                "Enter product name and price."
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            showToast(
+                "Adding product..."
+            );
+
+
+            let image =
+                "";
+
+
+            if(file){
+
+                image =
+                    await uploadToCloudinary(
+                        file
+                    );
+
+            }
+
+
+            const productRef =
+                push(
+                    ref(
+                        db,
+                        "vegetableProducts"
+                    )
+                );
+
+
+            await set(
+
+                productRef,
+
+                {
+
+                    name,
+
+                    description,
+
+                    unit,
+
+                    price,
+
+                    discount:
+                        Math.max(
+                            0,
+                            Math.min(
+                                100,
+                                discount
+                            )
+                        ),
+
+                    image,
+
+                    createdAt:
+                        Date.now()
+
+                }
+
+            );
+
+
+            document.getElementById(
+                "productName"
+            ).value =
+                "";
+
+            document.getElementById(
+                "productDescription"
+            ).value =
+                "";
+
+            document.getElementById(
+                "productPrice"
+            ).value =
+                "";
+
+            document.getElementById(
+                "productDiscount"
+            ).value =
+                "0";
+
+            document.getElementById(
+                "productImage"
+            ).value =
+                "";
+
+
+            showToast(
+                "Product added successfully."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Unable to add product."
+            );
+
+        }
+
+    };
+
+
+/* =========================================
+   ADMIN PRODUCTS
+========================================= */
+
+function renderAdminProducts(){
+
+    const box =
+        document.getElementById(
+            "adminProducts"
+        );
+
+
+    if(!box)
+        return;
+
+
+    const entries =
+        Object.entries(
+            products
+        );
+
+
+    if(entries.length === 0){
+
+        box.innerHTML =
+            `
+            <p style="color:#777">
+                No products.
+            </p>
+            `;
+
+        return;
+
+    }
+
+
+    let html =
+        "";
+
+
+    entries.forEach(
+        ([id,p]) => {
+
+            html += `
+
+            <div class="admin-product">
+
+                <div>
+
+                    <b>
+                        ${escapeHtml(
+                            p.name
+                        )}
+                    </b>
+
+                    <br>
+
+                    <small>
+
+                        Rs.
+                        ${Number(
+                            p.price || 0
+                        )}
+
+                        /
+
+                        ${escapeHtml(
+                            p.unit || "Kg"
+                        )}
+
+                    </small>
+
+                </div>
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="small-btn edit-btn"
+                        onclick="editProduct('${id}')"
+                    >
+                        Edit
+                    </button>
+
+
+                    <button
+                        class="small-btn delete-btn"
+                        onclick="deleteProduct('${id}')"
+                    >
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        }
+    );
+
+
+    box.innerHTML =
+        html;
+
+}
+
+
+window.editProduct =
+    async function(id){
+
+        if(!isOwner())
+            return;
+
+
+        const p =
+            products[id];
+
+
+        if(!p)
+            return;
+
+
+        const name =
+            prompt(
+                "Product name:",
+                p.name || ""
+            );
+
+
+        if(name === null)
+            return;
+
+
+        const price =
+            prompt(
+                "Price:",
+                p.price || 0
+            );
+
+
+        if(price === null)
+            return;
+
+
+        const discount =
+            prompt(
+                "Discount %:",
+                p.discount || 0
+            );
+
+
+        if(discount === null)
+            return;
+
+
+        try{
+
+            await update(
+
+                ref(
+                    db,
+                    "vegetableProducts/" +
+                    id
+                ),
+
+                {
+
+                    name:
+                        name.trim(),
+
+                    price:
+                        Number(price),
+
+                    discount:
+                        Number(discount)
+
+                }
+
+            );
+
+
+            showToast(
+                "Product updated."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Unable to update product."
+            );
+
+        }
+
+    };
+
+
+window.deleteProduct =
+    async function(id){
+
+        if(!isOwner())
+            return;
+
+
+        if(
+            !confirm(
+                "Delete this product?"
+            )
+        ){
+
+            return;
+
+        }
+
+
+        try{
+
+            await remove(
+
+                ref(
+                    db,
+                    "vegetableProducts/" +
+                    id
+                )
+
+            );
+
+
+            delete cart[id];
+
+            saveCart();
+
+
+            showToast(
+                "Product deleted."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Unable to delete product."
+            );
+
+        }
+
+    };
+
+
+/* =========================================
+   ADMIN ORDERS
+========================================= */
+
+async function loadAdminOrders(){
+
+    if(!isOwner())
+        return;
+
+
+    try{
+
+        const snap =
+            await get(
+                ref(
+                    db,
+                    "vegetableOrders"
+                )
+            );
+
+
+        const data =
+            snap.val() || {};
+
+
+        document.getElementById(
+            "adminOrderCount"
+        ).textContent =
+            Object.keys(data).length;
+
+
+        const box =
+            document.getElementById(
+                "adminOrders"
+            );
+
+
+        let html =
+            "";
+
+
+        Object.entries(data)
+            .reverse()
+            .forEach(
+                ([id,order]) => {
+
+                    const status =
+                        order.status ||
+                        "Pending";
+
+
+                    html += `
+
+                    <div class="order-card">
+
+                        <div class="order-top">
+
+                            <div>
+
+                                <b>
+                                    Order #${id.slice(-6)}
+                                </b>
+
+                                <br>
+
+                                <small>
+                                    ${escapeHtml(
+                                        order.customerName ||
+                                        ""
+                                    )}
+                                </small>
+
+                            </div>
+
+                            <span class="badge">
+
+                                ${escapeHtml(
+                                    status
+                                )}
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="order-details">
+
+                            📞
+                            ${escapeHtml(
+                                order.phone ||
+                                ""
+                            )}
+
+                            <br>
+
+                            📍
+                            ${escapeHtml(
+                                order.address ||
+                                ""
+                            )}
+
+                            <br>
+
+                            Buyer:
+                            ${escapeHtml(
+                                order.buyerType ||
+                                ""
+                            )}
+
+                            <br>
+
+                            Payment:
+                            ${escapeHtml(
+                                order.paymentMethod ||
+                                ""
+                            )}
+
+                            <br>
+
+                            Total:
+                            <b>
+                                Rs.
+                                ${Number(
+                                    order.total ||
+                                    0
+                                ).toFixed(2)}
+                            </b>
+
+                        </div>
+
+
+                        ${
+                            order.paymentScreenshot
+                            ?
+                            `
+                            <a
+                                href="${escapeHtml(
+                                    order.paymentScreenshot
+                                )}"
+                                target="_blank"
+                                style="
+                                display:inline-block;
+                                margin-top:8px;
+                                color:#16803a;
+                                font-weight:bold;
+                                "
+                            >
+                                🧾 View Payment Screenshot
+                            </a>
+                            `
+                            :
+                            ""
+                        }
+
+
+                        <select
+
+                            style="
+                            width:100%;
+                            margin-top:10px;
+                            padding:9px;
+                            border:1px solid #ddd;
+                            border-radius:8px;
+                            "
+
+                            onchange="
+                                updateOrderStatus(
+                                    '${id}',
+                                    this.value
+                                )
+                            "
+                        >
+
+                            <option
+                                value="Pending"
+                                ${
+                                    status === "Pending"
+                                    ?
+                                    "selected"
+                                    :
+                                    ""
+                                }
+                            >
+                                Pending
+                            </option>
+
+
+                            <option
+                                value="Accepted"
+                                ${
+                                    status === "Accepted"
+                                    ?
+                                    "selected"
+                                    :
+                                    ""
+                                }
+                            >
+                                Accepted
+                            </option>
+
+
+                            <option
+                                value="Preparing"
+                                ${
+                                    status === "Preparing"
+                                    ?
+                                    "selected"
+                                    :
+                                    ""
+                                }
+                            >
+                                Preparing
+                            </option>
+
+
+                            <option
+                                value="Completed"
+                                ${
+                                    status === "Completed"
+                                    ?
+                                    "selected"
+                                    :
+                                    ""
+                                }
+                            >
+                                Completed
+                            </option>
+
+
+                            <option
+                                value="Cancelled"
+                                ${
+                                    status === "Cancelled"
+                                    ?
+                                    "selected"
+                                    :
+                                    ""
+                                }
+                            >
+                                Cancelled
+                            </option>
+
+                        </select>
+
+
+                        <button
+                            class="secondary-btn"
+                            onclick="verifyPayment('${id}')"
+                        >
+                            ✅ Verify Payment
+                        </button>
+
+
+                        ${
+                            status === "Completed"
+                            ?
+                            `
+                            <button
+                                class="delete-order-btn"
+                                onclick="deleteCompletedOrder('${id}')"
+                            >
+                                🗑️ Delete Completed Order
+                            </button>
+                            `
+                            :
+                            ""
+                        }
+
+                    </div>
+
+                    `;
+
+                }
+            );
+
+
+        box.innerHTML =
+            html ||
+            `
+            <p style="color:#777">
+                No orders yet.
+            </p>
+            `;
+
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =========================================
+   DELETE COMPLETED ORDER
+========================================= */
+
+window.deleteCompletedOrder =
+    async function(id){
+
+        if(!isOwner())
+            return;
+
+
+        try{
+
+            const orderSnapshot =
+                await get(
+
+                    ref(
+                        db,
+                        "vegetableOrders/" +
+                        id
+                    )
+
+                );
+
+
+            const order =
+                orderSnapshot.val();
+
+
+            if(!order){
+
+                showToast(
+                    "Order not found."
+                );
+
+                return;
+
+            }
+
+
+            if(
+                order.status !==
+                "Completed"
+            ){
+
+                showToast(
+                    "Only completed orders can be deleted."
+                );
+
+                return;
+
+            }
+
+
+            if(
+                !confirm(
+                    "Delete this completed order permanently?"
+                )
+            ){
+
+                return;
+
+            }
+
+
+            await remove(
+
+                ref(
+                    db,
+                    "vegetableOrders/" +
+                    id
+                )
+
+            );
+
+
+            const trackingPhone =
+                normalizePhone(
+                    order.phone
+                );
+
+
+            if(trackingPhone){
+
+                await remove(
+
+                    ref(
+                        db,
+                        "orderTracking/" +
+                        trackingPhone +
+                        "/" +
+                        id
+                    )
+
+                );
+
+            }
+
+
+            showToast(
+                "Completed order deleted."
+            );
+
+
+            loadAdminOrders();
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Unable to delete order."
+            );
+
+        }
+
+    };
+
+
+/* =========================================
+   ORDER STATUS
+========================================= */
+
+window.updateOrderStatus =
+    async function(
+        id,
+        status
+    ){
+
+        if(!isOwner())
+            return;
+
+
+        try{
+
+            const orderSnapshot =
+                await get(
+
+                    ref(
+                        db,
+                        "vegetableOrders/" +
+                        id
+                    )
+
+                );
+
+
+            const order =
+                orderSnapshot.val();
+
+
+            if(!order){
+
+                showToast(
+                    "Order not found."
+                );
+
+                return;
+
+            }
+
+
+            await update(
+
+                ref(
+                    db,
+                    "vegetableOrders/" +
+                    id
+                ),
+
+                {
+                    status
+                }
+
+            );
+
+
+            const trackingPhone =
+                normalizePhone(
+                    order.phone
+                );
+
+
+            if(trackingPhone){
+
+                await update(
+
+                    ref(
+                        db,
+                        "orderTracking/" +
+                        trackingPhone +
+                        "/" +
+                        id
+                    ),
+
+                    {
+                        status
+                    }
+
+                );
+
+            }
+
+
+            showToast(
+                "Order status updated."
+            );
+
+
+            loadAdminOrders();
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Unable to update order."
+            );
+
+        }
+
+    };
+
+
+/* =========================================
+   VERIFY PAYMENT
+========================================= */
+
+window.verifyPayment =
+    async function(id){
+
+        if(!isOwner())
+            return;
+
+
+        try{
+
+            const orderSnapshot =
+                await get(
+
+                    ref(
+                        db,
+                        "vegetableOrders/" +
+                        id
+                    )
+
+                );
+
+
+            const order =
+                orderSnapshot.val();
+
+
+            if(!order){
+
+                showToast(
+                    "Order not found."
+                );
+
+                return;
+
+            }
+
+
+            await update(
+
+                ref(
+                    db,
+                    "vegetableOrders/" +
+                    id
+                ),
+
+                {
+                    paymentStatus:
+                        "Verified"
+                }
+
+            );
+
+
+            const trackingPhone =
+                normalizePhone(
+                    order.phone
+                );
+
+
+            if(trackingPhone){
+
+                await update(
+
+                    ref(
+                        db,
+                        "orderTracking/" +
+                        trackingPhone +
+                        "/" +
+                        id
+                    ),
+
+                    {
+                        paymentStatus:
+                            "Verified"
+                    }
+
+                );
+
+            }
+
+
+            showToast(
+                "Payment verified."
+            );
+
+
+            loadAdminOrders();
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Unable to verify payment."
+            );
+
+        }
+
+    };
+
+
+/* =========================================
+   OWNER CHECK
+========================================= */
+
+function isOwner(){
+
+    if(
+        !currentUser ||
+        currentUser.uid !==
+        OWNER_UID
+    ){
+
+        showToast(
+            "Owner access required."
+        );
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+/* =========================================
+   OWNER LOGOUT
+========================================= */
+
+window.ownerLogout =
+    async function(){
+
+        try{
+
+            await signOut(
+                auth
+            );
+
+
+            closeModal(
+                "adminModal"
+            );
+
+
+            showToast(
+                "Owner logged out."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+        }
+
+    };
+
+
+/* =========================================
+   INITIAL
+========================================= */
+
+updateCartCount();
+
+renderCart();
+
+</script>
+
+</body>
+</html>
